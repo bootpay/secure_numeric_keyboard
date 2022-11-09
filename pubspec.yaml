@@ -1,7 +1,7 @@
 name: secure_numeric_keyboard
 description: secure_numeric_keyboard Flutter plugin project.
 version: 2.2.2
-homepage:
+homepage: https://github.com/bootpay/secure_numeric_keyboard
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
