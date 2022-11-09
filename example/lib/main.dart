@@ -111,16 +111,6 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
           autocorrect: false,
           enableSuggestions: false,
           onTap: () {
-            // _secureKeyboardController.show(
-            //     focusNode: _pinCodeTextFieldFocusNode,
-            //     initText: _pinCodeEditor.text,
-            //     keyboardTheme: KeyboardTheme(
-            //       showTopShadow: true,
-            //     ),
-            //     onCharCodesChanged: (List<int> charCodes) {
-            //       _pinCodeEditor.text = String.fromCharCodes(charCodes);
-            //     },
-            // );
           },
         ),
       ],

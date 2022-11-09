@@ -40,12 +40,19 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
   Widget build(BuildContext context) {
     // Set the WithNumericSecureKeyboard widget as the top-level widget
     // in the build function so that the secure keyboard works properly.
-    return WithNumericSecureKeyboard(
-      controller: _secureKeyboardController,
-      child: Scaffold(
-          appBar: AppBar(title: Text('with_numeric_secure_keyboard_example')),
-          resizeToAvoidBottomInset: false,
-          body: _buildContentView()
+    return GestureDetector(
+      onTap: () {
+        _secureKeyboardController.hide();
+        FocusScope.of(context).unfocus();
+      },
+      child: WithNumericSecureKeyboard(
+        controller: _secureKeyboardController,
+        child: Scaffold(
+            appBar: AppBar(title: Text('with_numeric_secure_keyboard_example')),
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.white,
+            body: _buildContentView()
+        ),
       ),
     );
   }
@@ -74,13 +81,16 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
           // We recommended to set false to prevent the software keyboard from opening.
           enableInteractiveSelection: false,
           obscureText: true,
+          autocorrect: false,
+          enableSuggestions: false,
           onTap: () {
 
             _secureKeyboardController.show(
               focusNode: _passwordTextFieldFocusNode,
               initText: _passwordEditor.text,
-              // hintText: 'password',
-              // Use onCharCodesChanged to have text entered in real time.
+              keyboardTheme: KeyboardTheme(
+                showTopShadow: true,
+              ),
               onCharCodesChanged: (List<int> charCodes) {
                 _passwordEditor.text = String.fromCharCodes(charCodes);
               },
@@ -102,21 +112,18 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
           focusNode: _pinCodeTextFieldFocusNode,
           // We recommended to set false to prevent the software keyboard from opening.
           enableInteractiveSelection: false,
-          obscureText: true,
+          // obscureText: true,
+
+          autocorrect: false,
+          enableSuggestions: false,
           onTap: () {
-            _secureKeyboardController.show(
-              focusNode: _pinCodeTextFieldFocusNode,
-              initText: _pinCodeEditor.text,
-              onCharCodesChanged: (List<int> charCodes) {
-                _pinCodeEditor.text = String.fromCharCodes(charCodes);
-              },
-            );
           },
         ),
       ],
     );
   }
 }
+
 ```
 
 ## Package
@@ -142,6 +149,8 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
 | `screenCaptureDetectedAlertActionTitle` | Security Alert actionTitle, only works on iOS. |
 
 ### KeyboardTheme
+
+| Parameter | Description |
 |---|---|
 | `keypadHeight` | The height of the keyboard's content. <br> Default value is `270.0`. |
 | `keyboardHeight` | The height of the keyboard. <br> Default value is `300.0`. |
