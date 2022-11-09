@@ -5,7 +5,7 @@ Secure numeric keyboard to prevent KeyLogger attack and screen capture for web, 
 ## Screenshots
 | <img src="https://github.com/bootpay/secure_numeric_keyboard/blob/main/example.gif?raw=true" width="200">
 
-## Forked Proejct by flutter_secure_keyboard
+## Forked Proejct from flutter_secure_keyboard
 This project was forked and developed [flutter_secure_keyboard](https://pub.dev/packages/flutter_secure_keyboard/).
 
 
