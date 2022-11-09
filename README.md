@@ -3,8 +3,6 @@ Secure numeric keyboard to prevent KeyLogger attack and screen capture for web, 
 [![pub package](https://img.shields.io/pub/v/secure_numeric_keyboard.svg)](https://pub.dev/packages/secure_numeric_keyboard)
 
 ## Screenshots
-| Alphanumeric | Numeric |
-|---|---|
 | <img src="https://github.com/bootpay/secure_numeric_keyboard/blob/main/example.gif?raw=true" width="200">
 
 ## Forked Proejct by flutter_secure_keyboard
