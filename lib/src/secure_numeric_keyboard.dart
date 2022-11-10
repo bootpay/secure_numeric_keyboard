@@ -219,16 +219,18 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
 
     return SizedBox(
       height: height,
-      child: Column(
-        children: [
-          topShadow,
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: height - topShadowHeight,
-            color: widget.theme?.backgroundColor,
-            child: keyboard,
-          ),
-        ],
+      child: Container(
+        color: widget.theme?.backgroundColor,
+        child: Column(
+          children: [
+            topShadow,
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: height - topShadowHeight,
+              child: keyboard,
+            ),
+          ],
+        ),
       ),
     );
   }

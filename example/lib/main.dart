@@ -84,6 +84,10 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
                 initText: _passwordEditor.text,
                 theme: KeyboardTheme(
                     showTopShadow: true,
+                    topShadowColor: const Color(0xFF303845),
+                    backgroundColor: const Color(0xFF363D4B),
+                    keyBackgroundColor: const Color(0xFF38404F),
+                    textStyle: const TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.w500)
                 ),
                 onCharCodesChanged: (List<int> charCodes) {
                   _passwordEditor.text = String.fromCharCodes(charCodes);
