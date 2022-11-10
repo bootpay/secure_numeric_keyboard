@@ -82,7 +82,7 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
             _secureKeyboardController.show(
                 focusNode: _passwordTextFieldFocusNode,
                 initText: _passwordEditor.text,
-                keyboardTheme: KeyboardTheme(
+                theme: KeyboardTheme(
                     showTopShadow: true,
                 ),
                 onCharCodesChanged: (List<int> charCodes) {

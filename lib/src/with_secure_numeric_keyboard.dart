@@ -14,7 +14,6 @@ class WithNumericSecureKeyboard extends StatefulWidget {
   /// A child widget with a secure keyboard.
   final Widget child;
 
-  // KeyboardTheme? keyboardTheme;
 
   /// Security Alert title, only works on iOS.
   final String? screenCaptureDetectedAlertTitle;
@@ -158,7 +157,7 @@ class _WithNumericSecureKeyboardState extends State<WithNumericSecureKeyboard> {
       obscuringCharacter: widget.controller._obscuringCharacter,
       maxLength: widget.controller._maxLength,
       shuffleNumericKey: widget.controller._shuffleNumericKey,
-      keyboardTheme: widget.controller._keyboardTheme ?? KeyboardTheme(),
+      theme: widget.controller._keyboardTheme ?? KeyboardTheme(),
       screenCaptureDetectedAlertTitle: widget.screenCaptureDetectedAlertTitle,
       screenCaptureDetectedAlertMessage: widget.screenCaptureDetectedAlertMessage,
       screenCaptureDetectedAlertActionTitle: widget.screenCaptureDetectedAlertActionTitle,
@@ -205,7 +204,7 @@ class SecureKeyboardController extends ChangeNotifier {
     bool shuffleNumericKey = true,
     bool hideKeyInputMonitor = false,
     bool disableKeyBubble = false,
-    KeyboardTheme? keyboardTheme,
+    KeyboardTheme? theme,
     ValueChanged<SecureNumericKeyboardKey>? onKeyPressed,
     ValueChanged<List<int>>? onCharCodesChanged,
   }) {
@@ -213,7 +212,7 @@ class SecureKeyboardController extends ChangeNotifier {
 
     _focusNode = focusNode;
     _initText = initText;
-    _keyboardTheme = keyboardTheme;
+    _keyboardTheme = theme;
     _obscuringCharacter = obscuringCharacter;
     _maxLength = maxLength;
     _shuffleNumericKey = shuffleNumericKey;

@@ -62,7 +62,7 @@ class SecureNumericKeyboard extends StatefulWidget {
   /// Security Alert actionTitle, only works on iOS.
   final String? screenCaptureDetectedAlertActionTitle;
 
-  KeyboardTheme? keyboardTheme = KeyboardTheme();
+  KeyboardTheme? theme = KeyboardTheme();
 
   int? backspaceEventDelay;
 
@@ -80,7 +80,7 @@ class SecureNumericKeyboard extends StatefulWidget {
     this.maxLength,
     this.shuffleNumericKey = true,
     // this.hideKeyInputMonitor = false,
-    this.keyboardTheme,
+    this.theme,
     this.backspaceEventDelay = 100,
     this.activatedKeyColor,
     this.screenCaptureDetectedAlertTitle,
@@ -185,13 +185,13 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
     }
 
     // double height = (widget.keyboardTheme?.keypadHeight ?? 280) + freeSpace;
-    double height = (widget.keyboardTheme?.keyboardHeight ?? 300);
+    double height = (widget.theme?.keyboardHeight ?? 300);
 
 
     final keyRows =  _definedKeyRows;
 
     final keyboard = Padding(
-      padding: (widget.keyboardTheme?.keyDefaultPadding ?? EdgeInsets.zero),
+      padding: (widget.theme?.keyDefaultPadding ?? EdgeInsets.zero),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -199,23 +199,20 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
       ),
     );
 
-    double keyboardHeight = widget.keyboardTheme?.keyboardHeight ?? 0;
-    double keypadHeight = widget.keyboardTheme?.keypadHeight ?? 0;
+    double keyboardHeight = widget.theme?.keyboardHeight ?? 0;
+    double keypadHeight = widget.theme?.keypadHeight ?? 0;
     double topShadowHeight = max((keyboardHeight - keypadHeight) / 2, 0);
-    // if(widget.keyboardTheme?.showTopShadow == false) {
-    //   topShadowHeight = 0;
-    // }
 
     final topShadow = Container(
       height: topShadowHeight,
-      color: (widget.keyboardTheme?.showTopShadow == false) ? widget.keyboardTheme?.backgroundColor : null,
-      decoration: (widget.keyboardTheme?.showTopShadow == false) ? null : BoxDecoration(
+      color: (widget.theme?.showTopShadow == false) ? widget.theme?.backgroundColor : null,
+      decoration: (widget.theme?.showTopShadow == false) ? null : BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                widget.keyboardTheme?.topShadowColor ?? const Color(0xFFF5F5F5),
-                widget.keyboardTheme?.backgroundColor ?? Colors.white,
+                widget.theme?.topShadowColor ?? const Color(0xFFF5F5F5),
+                widget.theme?.backgroundColor ?? Colors.white,
               ])
       ),
     );
@@ -228,7 +225,7 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: height - topShadowHeight,
-            color: widget.keyboardTheme?.backgroundColor,
+            color: widget.theme?.backgroundColor,
             child: keyboard,
           ),
         ],
@@ -259,17 +256,17 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
   Widget _buildStringKey(SecureNumericKeyboardKey key, int keyRowsLength) {
 
     final keyText = key.text ?? '';
-    final keyData = Text(keyText, style: widget.keyboardTheme?.textStyle);
+    final keyData = Text(keyText, style: widget.theme?.textStyle);
     final widgetKey = GlobalKey(debugLabel: 'StringKey');
 
     return Expanded(
       child: SizedBox(
         key: widgetKey,
-        height: ((widget.keyboardTheme?.keypadHeight ?? 270) - 15) / keyRowsLength,
+        height: ((widget.theme?.keypadHeight ?? 270) - 15) / keyRowsLength,
         child: _KeyboardKeyLayout(
-          margin: EdgeInsets.all(widget.keyboardTheme?.keySpacing ?? 0),
-          borderRadius: BorderRadius.circular(widget.keyboardTheme?.keyRadius ?? 0),
-          color: widget.keyboardTheme?.keyBackgroundColor,
+          margin: EdgeInsets.all(widget.theme?.keySpacing ?? 0),
+          borderRadius: BorderRadius.circular(widget.theme?.keyRadius ?? 0),
+          color: widget.theme?.keyBackgroundColor,
           onTouchStart: (constraints) {
           },
           onTouchEnd: (constraints) {
@@ -285,13 +282,13 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
     Widget keyData;
     switch (key.action ?? SecureNumericKeyboardKeyAction.BLANK) {
       case SecureNumericKeyboardKeyAction.BACKSPACE:
-        keyData = Icon(Icons.backspace, color: widget.keyboardTheme?.textStyle?.color);
+        keyData = Icon(Icons.backspace, color: widget.theme?.textStyle?.color);
         break;
       case SecureNumericKeyboardKeyAction.BLANK:
         return const Expanded(child: SizedBox.shrink());
     }
 
-    Color keyColor = widget.keyboardTheme?.keyBackgroundColor ?? Colors.white;
+    Color keyColor = widget.theme?.keyBackgroundColor ?? Colors.white;
 
     _KeyboardKeyPressCallback? onLongPressStart;
     _KeyboardKeyPressCallback? onLongPressEnd;
@@ -308,10 +305,10 @@ class _SecureNumericKeyboardState extends State<SecureNumericKeyboard> {
 
     return Expanded(
       child: SizedBox(
-        height: (widget.keyboardTheme?.keypadHeight ?? 280) / keyRowsLength,
+        height: (widget.theme?.keypadHeight ?? 280) / keyRowsLength,
         child: _KeyboardKeyLayout(
-          margin: EdgeInsets.all(widget.keyboardTheme?.keySpacing ?? 0),
-          borderRadius: BorderRadius.circular(widget.keyboardTheme?.keyRadius ?? 0),
+          margin: EdgeInsets.all(widget.theme?.keySpacing ?? 0),
+          borderRadius: BorderRadius.circular(widget.theme?.keyRadius ?? 0),
           color: keyColor,
           onTap: () => _onKeyPressed(key),
           onLongPressStart: onLongPressStart,

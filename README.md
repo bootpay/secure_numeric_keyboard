@@ -148,19 +148,6 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
 | `screenCaptureDetectedAlertMessage` | Security Alert message, only works on iOS |
 | `screenCaptureDetectedAlertActionTitle` | Security Alert actionTitle, only works on iOS. |
 
-### KeyboardTheme
-
-| Parameter | Description |
-|---|---|
-| `keypadHeight` | The height of the keyboard's content. <br> Default value is `270.0`. |
-| `keyboardHeight` | The height of the keyboard. <br> Default value is `300.0`. |
-| `keyRadius` | The radius of the keyboard key. <br> Default value is `4.0`. |
-| `keySpacing` | The spacing between keyboard keys. <br> Default value is `1.2`. |
-| `backgroundColor` | The background color of the keyboard. <br> Default value is `Colors.white`. |
-| `keyBackgroundColor` | The background color of the keypad. <br> Default value is `Colors.white`. |
-| `showTopShadow` | Set whether to show the upper gradient of the keyboard or not <br> Default value is `false`. |
-| `topShadowColor` | The color of the gradient at the top of the keyboard `const Color(0xFFF5F5F5)`. |
- 
 ### SecureKeyboardController
 | Function | Description |
 |---|---|
@@ -183,7 +170,20 @@ class _WithNumericSecureKeyboardExampleState extends State<WithNumericSecureKeyb
 | `shuffleNumericKey` | Whether to shuffle the position of the numeric keys. <br> Default value is `true`. |
 | `hideKeyInputMonitor` | Whether to hide the key input monitor. <br> Default value is `false`. |
 | `disableKeyBubble` | Whether to disable the key bubble. <br> Default value is `false`. |
-| `keyboardTheme` | You can style the keyboard | 
+| `theme` | You can style the keyboard Theme | 
 | `onKeyPressed` | Called when the key is pressed. |
 | `onCharCodesChanged` | Called when the character codes changed. |
 
+### KeyboardTheme
+
+| Parameter | Description |
+|---|---|
+| `keypadHeight` | The height of the keyboard's content. <br> Default value is `270.0`. |
+| `keyboardHeight` | The height of the keyboard. <br> Default value is `300.0`. |
+| `keyRadius` | The radius of the keyboard key. <br> Default value is `4.0`. |
+| `keySpacing` | The spacing between keyboard keys. <br> Default value is `1.2`. |
+| `backgroundColor` | The background color of the keyboard. <br> Default value is `Colors.white`. |
+| `keyBackgroundColor` | The background color of the keypad. <br> Default value is `Colors.white`. |
+| `showTopShadow` | Set whether to show the upper gradient of the keyboard or not <br> Default value is `false`. |
+| `topShadowColor` | The color of the gradient at the top of the keyboard `const Color(0xFFF5F5F5)`. |
+ 
